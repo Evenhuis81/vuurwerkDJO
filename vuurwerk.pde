@@ -1,7 +1,7 @@
 Deeltje deeltje;
 
 void setup() {
-    size(800, 600);    
+    size(800, 600);
 
     deeltje = new Deeltje();
 }
