@@ -1,4 +1,4 @@
-deeltje = new Deeltje();class Deeltje {
+class Vonk implements Update, Show, Deeltje {
     PVector positie = new PVector(300, 400);
     PVector vaart = new PVector();
     PVector acceleratie = new PVector();
