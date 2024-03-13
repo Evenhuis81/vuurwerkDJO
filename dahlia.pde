@@ -32,8 +32,8 @@ class Dahlia extends Vuurwerk {
             vonk.blue = (int) random(256);
             vonk.green = (int) random(256);
 
-            engine.setUpdate(vonk);
-            engine.setShow(vonk);
+            engine.addUpdate(vonk);
+            engine.addShow(vonk);
         }
     }
 }
