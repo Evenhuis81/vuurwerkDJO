@@ -1,18 +1,32 @@
-ArrayList<Deeltje> deeltjes = new ArrayList<Deeltje>();
+Mortier mortier;
+Mortier mortier2;
+Dahlia dahlia;
+Dahlia dahlia2;
+
 Engine engine;
-Vonk vonk;
 
 void setup() {
     size(800, 600);
 
     engine = new Engine();
-    vonk = new Vonk();
 
-    vonk.vaart.y = -2;
-    vonk.acceleratie.y = 0.01;
+    mortier = new Mortier(width/2, PI * 1.4);
+    mortier2 = new Mortier(width/2, PI * 1.6);
 
-    engine.setUpdate(vonk);
-    engine.setShow(vonk);
+    dahlia = new Dahlia();
+    dahlia2 = new Dahlia();
+
+    dahlia2.red = 0;
+    dahlia2.blue = 255;
+
+    mortier.setMortier(dahlia);
+    mortier2.setMortier(dahlia2);
+
+    engine.setUpdate(mortier.granaat);
+    engine.setShow(mortier.granaat);
+
+    engine.setUpdate(mortier2.granaat);
+    engine.setShow(mortier2.granaat);
 }
 
 void draw() {
