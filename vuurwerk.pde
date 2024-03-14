@@ -1,21 +1,16 @@
 Engine engine;
-Sequencer sequencer;
-Button startButton;
+Screen screen;
+Input input;
 
 void setup() {
     size(800, 600);
 
     engine = new Engine();
 
-    sequencer = new Sequencer();
-
-    startButton = new Button("Start", width - 120, height - 120);
+    screen = new Screen1();
 }
 
 void draw() {
-    background(0);
-
-    engine.run();
-
-    startButton.show();
+    screen.update();
+    screen.draw();
 }

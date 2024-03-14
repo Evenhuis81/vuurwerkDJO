@@ -1,13 +1,30 @@
 void mousePressed() {
-    if (startButton.inside()) startButton.press();
+    input.mousePress();
 }
 
 void mouseReleased() {
-    if (startButton.pressed) {
-        if (startButton.inside()) {
-            sequencer.start();
-        }
+    input.mouseRelease();
+}
 
-        startButton.release();
+class InputScreen1 implements Input {
+    Button button;
+
+    InputScreen1(Button button) {
+        this.button = button;
+    }
+
+    void mousePress() {
+        if (button.inside()) button.press();
+    }
+    void mouseRelease() {
+        if (button.pressed) {
+            if (button.inside()) {
+                Sequencer sequencer = new Sequencer();
+
+                sequencer.start();
+            }
+
+            button.release();
+        }
     }
 }

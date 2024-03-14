@@ -1,6 +1,6 @@
 class Vuurwerk extends Vonk {
     int lanceerSnelheid = 5;
-    Vonk[] burstCharge;
+    // Vonk[] burstCharge;
 }
 
 class Dahlia extends Vuurwerk {
@@ -27,7 +27,7 @@ class Dahlia extends Vuurwerk {
         for (int i = 0; i < amount; i++) {
             Vonk vonk = new VonkVervagen();
             vonk.positie.set(positie);
-            vonk.vaart.set(PVector.random2D().mult(random(1, 4)));
+            vonk.vaart.set(PVector.random2D().mult(random(2, 4)));
             vonk.red = (int) random(256);
             vonk.blue = (int) random(256);
             vonk.green = (int) random(256);
