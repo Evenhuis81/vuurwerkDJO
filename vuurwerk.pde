@@ -7,7 +7,7 @@ void setup() {
 
     engine = new Engine();
 
-    screen = new Screen1();
+    screen = new Menu();
 }
 
 void draw() {

@@ -1,8 +1,20 @@
+class MenuButton extends Button {
+    // MenuButton(String txt, float x, float y) {
+    //     super(txt, x, y);
+    // }
+
+    void released() {
+        if (releasedInside()) {
+            println("released inside");
+        }
+    }
+}
+
 class Button {
-    int x, y, w, h, r, s, fillC, strokeC; // r: rounded corner, s: textSize
-    float textDesc; // correction for vertical alignment
+    int w, h, r, s, fillC, strokeC; // r: rounded corner, s: textSize
+    float x, y, textDesc; // correction for vertical alignment
     String txt;
-    boolean pressed;
+    boolean active;
 
     Button() { // default constructor
         txt = "Button";
@@ -16,14 +28,28 @@ class Button {
         strokeC = 255;
         textSize(s);
         textDesc = 0.6 * textDescent();
-        pressed = false;
+        active = false;
     }
 
-    Button(String buttonText, int x, int y) {
+    Button(String buttonText, float x, float y) {
         this();
         txt = buttonText;
         this.x = x;
         this.y = y;
+    }
+
+    void pressed() {
+        if (inside()) press();
+    }
+
+    boolean releasedInside() {
+        if (active) {
+            release();
+            
+            if (inside()) return true;
+        }
+
+        return false;
     }
 
     boolean inside() {
@@ -31,13 +57,13 @@ class Button {
     }
 
     void press() {
-        pressed = true;
+        active = true;
         fillC = 100;
     }
 
     void release() {
         fillC = 0;
-        pressed = false;
+        active = false;
     }
 
     void show() {
