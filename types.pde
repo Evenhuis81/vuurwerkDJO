@@ -10,3 +10,13 @@ interface Update {
 interface Show {
     void show();
 }
+
+interface Input {
+    void mousePress();
+    void mouseRelease();
+}
+
+interface Screen {
+    void update();
+    void draw();
+}

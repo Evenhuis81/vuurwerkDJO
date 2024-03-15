@@ -14,6 +14,7 @@ class Vonk implements Update, Show, Deeltje {
     }
     void show() {
         fill(red, green, blue, alpha);
+        stroke(color(random(256), random(256), random(256), alpha));
         circle(positie.x, positie.y, 10);
     }
 }

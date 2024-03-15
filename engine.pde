@@ -6,11 +6,11 @@ class Engine {
     ArrayList<Show> showsToRemove = new ArrayList<Show>();
     ArrayList<Show> showsToAdd = new ArrayList<Show>();
     
-    void setUpdate(Update update) {
+    void addUpdate(Update update) {
         updatesToAdd.add(update);
     }
 
-    void setShow(Show show) {
+    void addShow(Show show) {
         showsToAdd.add(show);
     }
 
@@ -22,7 +22,7 @@ class Engine {
         showsToRemove.add(show);
     }
 
-    void run() {
+    void update() {
         for (Update u : updates) u.update();
 
         updates.removeAll(updatesToRemove);
@@ -30,7 +30,9 @@ class Engine {
 
         updatesToRemove.clear();
         updatesToAdd.clear();
+    }
 
+    void show() {
         for (Show s : shows) s.show();
 
         shows.removeAll(showsToRemove);
@@ -38,10 +40,5 @@ class Engine {
 
         showsToRemove.clear();
         showsToAdd.clear();
-
-        fill(255);
-        textSize(32);
-        text(shows.size(), 100, 100);
-        text(updates.size(), 100, 150);
     }
 }
